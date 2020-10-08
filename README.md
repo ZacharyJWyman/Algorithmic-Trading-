@@ -8,4 +8,4 @@ Project is currently in development.'
 Integrating watchlist using the Flask framework.
 
 ## Author
-Created by ** Zachary Wyman **
+Created by Zachary Wyman
