@@ -1,9 +1,9 @@
-from flask import Flask, render_template
+from flask import *
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////C:/Users/19712/OneDrive/Desktop/alpaca/storage.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///C:\\Users\\19712\\OneDrive\\Desktop\\alpaca\\storage.db'
 
 db = SQLAlchemy(app)
 
@@ -17,6 +17,10 @@ db.create_all()
 @app.route("/")
 def index():
     return render_template('index.html')
+
+@app.route('/add', methods = ['POST'])
+def add():
+    return '<h1>{}</h1>'.format(request.form['symbol'])
 
 if __name__ == '__main__':
     app.run(debug=True)
