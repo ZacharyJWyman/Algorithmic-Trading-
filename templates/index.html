@@ -16,11 +16,8 @@
             <h2>Stocks</h2>
             <ul>
                 {% for sym in syms %}
-                <li style = "font-size: 20pt"><input name = "{{sym.id}}" type="checkbox">{{ sym.text }} <form action = '/delete' method = 'POST'>
-                    <input type = 'submit' value = 'Delete'>
-                </form></li>                         
-                {% endfor %}
-                 
+                <li style = "font-size: 20pt">{{ sym.text }} <form action = '/delete' method = 'POST'>  <button type = 'submit'>Delete</button> </li>                         
+                {% endfor %}               
             </ul>        
     </div>
 </body>
