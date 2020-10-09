@@ -16,11 +16,21 @@ db.create_all()
 
 @app.route("/")
 def index():
-    return render_template('index.html')
+    syms = Storage.query.all()
+    return render_template('index.html', syms = syms)
 
 @app.route('/add', methods = ['POST'])
 def add():
-    return '<h1>{}</h1>'.format(request.form['symbol'])
+    sm = Storage(text = request.form['symbol'], complete = False)
+    db.session.add(sm)
+    db.session.commit()
+    return redirect(url_for('index'))
+
+@app.route('/delete', methods = ['POST'])
+def delete():
+    db.session.delete()
+    db.session.commit()
+    return redirect(url_for('index'))
 
 if __name__ == '__main__':
     app.run(debug=True)

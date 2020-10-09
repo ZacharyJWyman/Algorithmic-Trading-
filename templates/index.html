@@ -8,15 +8,20 @@
     <h1>Watchlist</h1>
     <div>Add a new stock: 
         <form action = "/add" method = 'POST'>
-        <input type = 'text' name = 'symbol'>
-        <input type = 'submit'></div>
+            <input type = 'text' name = 'symbol'>
+            <input type = 'submit' value = 'Add Stock'></div>
         </form>
+    </div>  
     <div>
-    <ul>
-        <li style = "font-size: 20pt"><input type = 'checkbox'>Some text</li>
-        <li style = "font-size: 20pt"><input type = 'checkbox'>Some text</li>
-        <li style = "font-size: 20pt"><input type = 'checkbox'>Some text</li>
-    </ul>
+            <h2>Stocks</h2>
+            <ul>
+                {% for sym in syms %}
+                <li style = "font-size: 20pt"><input name = "{{sym.id}}" type="checkbox">{{ sym.text }} <form action = '/delete' method = 'POST'>
+                    <input type = 'submit' value = 'Delete'>
+                </form></li>                         
+                {% endfor %}
+                 
+            </ul>        
     </div>
 </body>
 </html>
