@@ -29,7 +29,6 @@ def create_order(symbol, qty, side, type, time_in_force):
 
     return json.loads(r.content)
 
-
 #watchlists
 def get_watchlists():
     r = requests.get(WATCHLIST_URL, headers = HEADERS)
