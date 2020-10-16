@@ -1,3 +1,5 @@
 multitasking==0.0.9
 yfinance==0.1.55
 pandas-datareader==0.9.0
+Flask==1.1.2
+Flask-SQLAlchemy==2.4.4

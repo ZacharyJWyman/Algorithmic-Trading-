@@ -5,7 +5,14 @@ import time
 
 #stocks to watch
 tickers = ['MSFT', 'AAPL', 'AMZN', 'FB', 'GOOG']
+CLOCK = clock()
+MARKET_OPEN = CLOCK['next_open'] #need to specify script to trade between these times
+MARKET_CLOSE = CLOCK['next_close']
 
+#below line will integrate clock into script. remove # when ready.
+#if CLOCK['is_open'] is True: #specifies if market is open
+#else: 
+    #print('market is open at: ' + str(CLOCK['next_open']))
 while True:
 
 #order = create_order('MSFT', 1, 'buy', 'market', 'day')
@@ -16,12 +23,14 @@ while True:
     print('NEW REQUEST')
     time.sleep(3)
 
+    
+
 
 
     #makes trade every 10 seconds until script is canceled #ctrl c
-    #order = create_order('MSFT', 1, 'buy', 'market', 'day')
-    #time.sleep(10)
-
+    order = create_order('MSFT', 1, 'buy', 'market', 'day')
+    time.sleep(10)
+    print('Trade Confirmed')
     
 
     

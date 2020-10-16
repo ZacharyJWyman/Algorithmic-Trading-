@@ -7,13 +7,25 @@ BASE_URL = 'https://paper-api.alpaca.markets'
 ORDERS_URL = '{}/v2/orders'.format(BASE_URL)
 ACCOUNT_URL = '{}/v2/account'.format(BASE_URL)
 WATCHLIST_URL = '{}/v2/watchlists'.format(BASE_URL)
+CLOCK_URL = '{}/v2/clock'.format(BASE_URL)
 HEADERS = {'APCA-API-KEY-ID': API_KEY, 'APCA-API-SECRET-KEY': SECRET_KEY}
+
 
 #make requests
 def get_account():
     r = requests.get(ACCOUNT_URL, headers = HEADERS)
 
     return json.loads(r.content)
+
+def clock():
+    data = {
+        'timestamp': [],
+        'is_open': []
+    }
+    r = requests.get(CLOCK_URL, json = data, headers = HEADERS)
+    return json.loads(r.content)
+
+
 
 #   create order(ticker, qty, buy/sell, market/limit, day) #sell or buy
 def create_order(symbol, qty, side, type, time_in_force):
