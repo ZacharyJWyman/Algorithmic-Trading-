@@ -18,11 +18,8 @@ def get_account():
     return json.loads(r.content)
 
 def clock():
-    data = {
-        'timestamp': [],
-        'is_open': []
-    }
-    r = requests.get(CLOCK_URL, json = data, headers = HEADERS)
+
+    r = requests.get(CLOCK_URL, headers = HEADERS)
     return json.loads(r.content)
 
 
