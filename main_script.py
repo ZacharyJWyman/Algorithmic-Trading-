@@ -1,5 +1,6 @@
 import config
-import requests, json
+import json
+import requests
 
 API_KEY = config.API_KEY
 SECRET_KEY = config.SECRET_KEY
@@ -62,3 +63,10 @@ def add_symbol(watchlist_id, symbol):
     r = requests.post(WATCHLIST_URL, json = data, headers = HEADERS)
 
     return json.loads(r.content)
+
+
+#FMP Requests
+def getROE(stock):
+    income_statement =  requests.get(f"https://financialmodelingprep.com/api/v3/financials/income-statement/{stock}?period=quarter")
+    income_statement = income_statement.json()
+    return income_statement

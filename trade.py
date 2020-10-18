@@ -2,7 +2,6 @@ from config import *
 from main_script import *
 import yfinance as yf
 import time
-import schedule
 from collections import defaultdict
 
 #stocks to watch
@@ -15,14 +14,21 @@ MARKET_CLOSE = CLOCK['next_close']
 PRICE = 0
 stock_dict = defaultdict(list)
 
+for tick in tickers:
+    obj = yf.Ticker(tick)
+    stock = obj.info['symbol']
+    stock_dict[stock].append(PRICE)
+    print(stock_dict)
+    
+
 
 #below line will integrate clock into script. remove # when ready.
-while CLOCK['is_open'] is False: #specifies if market is open
+while CLOCK['is_open'] is True: #specifies if market is open
     
-    #code for first time append 0 to stock price
-        
 
     for tick in tickers:
+
+
         #request price every minute on MSFT (2000 requests per hour = 33 requests per min)
         obj = yf.Ticker(tick)
         price = obj.info['ask']
@@ -40,6 +46,7 @@ while CLOCK['is_open'] is False: #specifies if market is open
 
         #append price to end of dict
         stock_dict[stock].append(price)
+        print(stock_dict)
         
 else: 
     print('market is open at: ' + str(CLOCK['next_open']))
