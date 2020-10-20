@@ -21,7 +21,7 @@ for tick in tickers:
     
 
 #below line will integrate clock into script. remove # when ready.
-while MARKET_OPEN is False: #specifies if market is open
+while MARKET_OPEN is True: #specifies if market is open
     
 
     for tick in tickers:
