@@ -12,6 +12,7 @@ CLOCK_URL = '{}/v2/clock'.format(BASE_URL)
 HEADERS = {'APCA-API-KEY-ID': API_KEY, 'APCA-API-SECRET-KEY': SECRET_KEY}
 
 
+
 #make requests
 def get_account():
     r = requests.get(ACCOUNT_URL, headers = HEADERS)
@@ -65,7 +66,7 @@ def add_symbol(watchlist_id, symbol):
     return json.loads(r.content)
 
 
-#FMP Requests
+#FMP Requests (250 per day)
 def getROE(stock):
     income_statement =  requests.get(f"https://financialmodelingprep.com/api/v3/financials/income-statement/{stock}?period=quarter")
     income_statement = income_statement.json()

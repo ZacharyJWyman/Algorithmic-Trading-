@@ -9,8 +9,7 @@ tickers = ['MSFT', 'AAPL', 'AMZN', 'FB', 'GOOG']
 
 #CONSTS
 CLOCK = clock()
-MARKET_OPEN = CLOCK['next_open'] #need to specify script to trade between these times
-MARKET_CLOSE = CLOCK['next_close']
+MARKET_OPEN = CLOCK['is_open']
 PRICE = 0
 stock_dict = defaultdict(list)
 
@@ -21,9 +20,8 @@ for tick in tickers:
     print(stock_dict)
     
 
-
 #below line will integrate clock into script. remove # when ready.
-while CLOCK['is_open'] is True: #specifies if market is open
+while MARKET_OPEN is False: #specifies if market is open
     
 
     for tick in tickers:
