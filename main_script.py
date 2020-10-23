@@ -74,6 +74,6 @@ def getROE(stock):
     return income_statement
 
 def getHistory():
-    r = requests.get(HISTORY_URL, json = data, headers = HEADERS)
+    r = requests.get(HISTORY_URL, headers = HEADERS)
 
     return json.loads(r.content)

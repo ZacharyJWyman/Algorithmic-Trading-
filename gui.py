@@ -1,12 +1,15 @@
 from yahoo_fin import stock_info 
 from tkinter import *
-from main_script import create_order, get_account
+from main_script import create_order, get_account, getHistory
 import warnings
 import numpy as np
 warnings.filterwarnings("ignore")
 
 ACCOUNT = get_account()
 PORTFOLIO_VALUE = ACCOUNT['portfolio_value']
+HISTORY = getHistory()
+DAY_PROFIT = HISTORY['profit_loss_pct'][-1]
+TOTAL_PROFIT = sum(HISTORY['profit_loss_pct'])
 
 
 #funcs
@@ -50,15 +53,10 @@ b = Button(master, text="Show", command=stock_price)
 b.grid(row=0, column=2, columnspan=2, rowspan=2, padx=5, pady=5) 
   
 #portfolio value
-value = Label(master, text = str(PORTFOLIO_VALUE)).grid(row = 9, column = 1, sticky = W)
-
-
-Label(master, text = 'Total Profit :').grid(row = 5, sticky = W)
-Label(master, text = 'Total Loss: ').grid(row = 7, sticky = W)
-Label(master, text = 'Day Profit :').grid(row = 5, column = 2, sticky = W)
-Label(master, textvariable = profit()).grid(row = 5, column = 3, sticky = W)
-Label(master, text = 'Day Loss :').grid(row = 7, column = 2, sticky = W)
-Label(master, text = 'PORTFOLIO VALUE :').grid(row = 9, column = 0, sticky = W)
+Label(master, text = 'Total Profit : ' + str(TOTAL_PROFIT) + '%').grid(row = 5, sticky = W)
+Label(master, text = 'Day Profit : ' + str(DAY_PROFIT) + '%').grid(row = 5, column = 2, sticky = W)
+Label(master, text = 'PORTFOLIO VALUE : $' + str(PORTFOLIO_VALUE)).grid(row = 9, column = 0, sticky = W)
+Label(master).grid(row = 10, sticky = W)
 Label(master, text = 'CREATE ORDER (SYM, #): ').grid(row = 11, column = 0, sticky = W)
 
 stepTwo = LabelFrame(master, text="ORDERS: ")
