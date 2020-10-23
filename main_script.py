@@ -9,6 +9,7 @@ ORDERS_URL = '{}/v2/orders'.format(BASE_URL)
 ACCOUNT_URL = '{}/v2/account'.format(BASE_URL)
 WATCHLIST_URL = '{}/v2/watchlists'.format(BASE_URL)
 CLOCK_URL = '{}/v2/clock'.format(BASE_URL)
+HISTORY_URL = '{}/v2/account/portfolio/history'.format(BASE_URL)
 HEADERS = {'APCA-API-KEY-ID': API_KEY, 'APCA-API-SECRET-KEY': SECRET_KEY}
 
 
@@ -71,3 +72,8 @@ def getROE(stock):
     income_statement =  requests.get(f"https://financialmodelingprep.com/api/v3/financials/income-statement/{stock}?period=quarter")
     income_statement = income_statement.json()
     return income_statement
+
+def getHistory():
+    r = requests.get(HISTORY_URL, json = data, headers = HEADERS)
+
+    return json.loads(r.content)
