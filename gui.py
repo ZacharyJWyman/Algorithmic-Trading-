@@ -3,6 +3,11 @@ from tkinter import *
 from main_script import create_order, get_account, getHistory
 import warnings
 import numpy as np
+import pandas_datareader.data as web
+import pandas as pd
+from model import stock_model
+from sklearn.preprocessing import MinMaxScaler
+
 warnings.filterwarnings("ignore")
 
 ACCOUNT = get_account()
@@ -79,6 +84,33 @@ def submit_data():
     rounded = np.round(price_stock, 3)
     insertitem(content + ': ' + str(rounded))
 
+def preprocess_data(df):
+    scaler = MinMaxScaler()
+    df = df.values.reshape(-1,1)
+    df = scaler.fit_transform(df)
+    inputs = []
+    for i in range(60, len(df)):
+        inputs.append(df[i-60:i, 0])
+    inputs = np.array(inputs)
+    inputs = np.reshape(inputs, (inputs.shape[0], inputs.shape[1], 1))
+    return inputs, scaler
+
+def get_data():
+    end_date = pd.to_datetime('today')
+    start_date = '2020-5-01'
+    df = web.DataReader(data.get(), 'yahoo', start_date, end_date)
+    df = df['Close']
+    prices, scaler = preprocess_data(df)
+    preds = stock_model.predict(prices)
+    inverse_preds = scaler.inverse_transform(preds)
+    print(inverse_preds)
+    
+
+data = Entry(master)
+data.grid(row = 10)
+data_button = Button(master, text = 'get predictions', command = get_data)
+data_button.grid(row = 10, column = 1)
+
 
 
 o1 = Entry(master)
@@ -88,5 +120,6 @@ o2.grid(row = 11, column = 2)
 
 b1 = Button(master, text = 'ORDER', command = combine_funcs(place_order, submit_data))
 b1.grid(row=11, column=3, columnspan=2, rowspan=2, padx=5, pady=5) 
+
 
 mainloop() 

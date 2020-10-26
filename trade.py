@@ -21,8 +21,7 @@ for tick in tickers:
     
 
 #below line will integrate clock into script. remove # when ready.
-while MARKET_OPEN is True: #specifies if market is open
-    
+while MARKET_OPEN is False: #specifies if market is open
 
     for tick in tickers:
 
@@ -35,20 +34,20 @@ while MARKET_OPEN is True: #specifies if market is open
         time.sleep(1)
 
 
-        if price > stock_dict[stock][-1]: #if next ping greater than prior ping
+        if price >= stock_dict[stock][-1]: #if next ping greater than prior ping
             order = create_order(tick, 1, 'buy', 'market', 'day')
             print('Trade Confirmed')
             time.sleep(1)
         else:
             print('Price Decreased: No trade made')
 
-        #append price to end of dict
+        #append price to end of dict1
         stock_dict[stock].append(price)
         print(stock_dict)
         
+
 else: 
     print('market is open at: ' + str(CLOCK['next_open']))
     
     
-
 
