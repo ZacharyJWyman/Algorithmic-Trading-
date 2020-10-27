@@ -4,7 +4,7 @@ This is an algorithmic paper trading bot that uses the following APIs: Alpaca, f
 ## Development
 Steps to run locally:  
   
-1). clone the repo into a local directory using ```git clone *link*```
+1). clone the repo into a local directory using ```git clone https://github.com/ZacharyJWyman/Algorithmic-Trading-.git```
 
 
 ### Current:
