@@ -6,7 +6,7 @@ Steps to run locally:
 
 0. create an alpaca account and generate api keys (secret and reg)
 1. clone the repo into a local directory using ```git clone https://github.com/ZacharyJWyman/Algorithmic-Trading-.git```
-2. Create a config.py file using the terminal by ```touch config.py``` and create variables ```API_KEY = 'key' & API_SECRET_KEY = 'secret_key'``` within config.py file.
+2. Create a config.py file using the terminal by ```touch config.py``` and create variables ```API_KEY = 'key' & API_SECRET_KEY = 'secret_key'``` within config.py file. You can use notepad for this step.
 3. cd in master directory and create a virtual env using ```virtualenv venv```
 4. cd into virtual environment ```cd venv``` and then instantiate using ```.\Scripts\activate``` (Windows activation)
 5. navigate to directory where requirements.txt is located while virtualenv is activate and install depedencies ```pip install -r requirements.txt```
