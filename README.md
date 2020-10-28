@@ -9,7 +9,7 @@ Steps to run locally:
 2. Create a config.py file using the terminal by ```touch config.py``` and create variables ```API_KEY = 'key' & API_SECRET_KEY = 'secret_key'``` within config.py file. You can use notepad for this step.
 3. cd in master directory and create a virtual env using ```virtualenv venv```
 4. cd into virtual environment ```cd venv``` and then instantiate using ```.\Scripts\activate``` (Windows activation)
-5. navigate to directory where requirements.txt is located while virtualenv is activate and install depedencies ```pip install -r requirements.txt```
+5. navigate to directory where requirements.txt is located while virtualenv is activate and install dependencies ```pip install -r requirements.txt```
 6. to run GUI ```python gui.py``` in the terminal.
 
 ### Current:
