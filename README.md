@@ -21,7 +21,7 @@ Currently the bot is linked to a paper trading account and can make paper trades
 * Flag buy and sell periods with model for smart trading. 
 * Create a more robust model (ideas: stock sentiment (news), seasonality trends). 
 
-# GUI
+## Using the GUI
 [![Video](http://img.youtube.com/vi/KdWSMBeIFdk/0.jpg)](https://youtu.be/KdWSMBeIFdk)
   
 ## Author
