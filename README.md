@@ -1,6 +1,9 @@
 # Paper-Trading-
 This is an algorithmic paper trading bot that uses the following APIs: Alpaca, financialmodelingprep, yahoofinance. With these tools and use of deep learning, we can create an intelligent trading bot that can automate trades in the market. For testing purposes we will trade paper money. 
 
+## GUI Functionality 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KdWSMBeIFdk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Development
 Steps to run locally:  
 
