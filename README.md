@@ -25,4 +25,4 @@ Currently the bot is linked to a paper trading account and can make paper trades
 [![Video](http://img.youtube.com/vi/KdWSMBeIFdk/0.jpg)](https://youtu.be/KdWSMBeIFdk)
   
 ## Author
-Created by Zachary Wyman
+Created by *Zachary Wyman*
